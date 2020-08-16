@@ -10,10 +10,20 @@ import Header from "../Components/Header";
 import MainFeaturedPost from "../Components/MainFeaturedPost";
 import FeaturedPost from "../Components/FeaturedPost";
 import Footer from "../Components/Footer";
+import ByteCard from "../Components/ByteCard";
 
 const useStyles = makeStyles((theme) => ({
     mainGrid: {
         marginTop: theme.spacing(3),
+    },
+    posts: {
+        marginTop: theme.spacing(4),
+        marginBottom: theme.spacing(4),
+    },
+    postsContainer: {
+        marginTop: theme.spacing(4),
+        borderTop: "1px solid rgba(0, 0, 0, 0.12)",
+        // backgroundColor: "#fff",
     },
 }));
 
@@ -76,9 +86,55 @@ export default function Blog() {
                     <Grid container spacing={5} className={classes.mainGrid} />
                 </main>
             </Container>
+
+            <Container maxWidth="lg" className={classes.postsContainer}>
+                <Grid container alignItems="center">
+                    <Grid item sm={4} xs={10} md={4} className={classes.posts}>
+                        <ByteCard
+                            title="Some big title coming from backend"
+                            time="1 min"
+                            tags="will be array"
+                            content="some thing large "
+                        />
+                    </Grid>
+                    <Grid item sm={4} xs={10} md={4} className={classes.posts}>
+                        <ByteCard
+                            title="Some big title coming from backend"
+                            time="1 min"
+                            tags="will be array"
+                            content="some thing large some thing large thing large some thing large  thing large some thing large  thing large some some thing large some thing large thing large some thing large  thing large some thing large  thing large some some thing large some thing large thing large some thing large  thing large some thing large  thing large some some thing large some thing large thing large some thing large  thing large some thing large  thing large some some thing large some thing large thing large some thing large  thing large some thing large  thing large some some thing large some thing large thing large some thing large  thing large some thing large  thing large some  thing large   some thing large some thing large some thing large some thing large some thing large "
+                        />
+                    </Grid>
+                    <Grid item sm={4} xs={10} md={4} className={classes.posts}>
+                        <ByteCard
+                            title="Some big title coming from backend"
+                            time="1 min"
+                            tags="will be array"
+                            content="some thing large "
+                        />
+                    </Grid>
+                    <Grid item sm={4} xs={10} md={4} className={classes.posts}>
+                        <ByteCard
+                            title="Some big title coming from backend"
+                            time="1 min"
+                            tags="will be array"
+                            content="some thing large "
+                        />
+                    </Grid>
+                    <Grid item sm={4} xs={10} md={4} className={classes.posts}>
+                        <ByteCard
+                            title="Some big title coming from backend"
+                            time="1 min"
+                            tags="will be array"
+                            content="some thing large "
+                        />
+                    </Grid>
+                </Grid>
+            </Container>
             <Footer
-                title="Footer"
-                description="Something here to give the footer a purpose!"
+                title="From going online to growing online"
+                description="Let’s do it together!"
+                mail="dizibizsolutions@gmail.com"
             />
         </React.Fragment>
     );

@@ -28,7 +28,7 @@ const sections = [
     { title: "Science", url: "#" },
     { title: "Health", url: "#" },
     { title: "Style", url: "#" },
-    { title: "Trravel", url: "#" },
+    { title: "Travel", url: "#" },
 ];
 
 export default function Post() {

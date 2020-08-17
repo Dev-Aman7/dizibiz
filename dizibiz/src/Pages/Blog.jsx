@@ -10,7 +10,7 @@ import Header from "../Components/Header";
 import MainFeaturedPost from "../Components/MainFeaturedPost";
 import FeaturedPost from "../Components/FeaturedPost";
 import Footer from "../Components/Footer";
-import ByteCard from "../Components/ByteCard";
+import Article from "../Components/Article";
 
 const useStyles = makeStyles((theme) => ({
     mainGrid: {
@@ -90,7 +90,7 @@ export default function Blog() {
             <Container maxWidth="lg" className={classes.postsContainer}>
                 <Grid container alignItems="center">
                     <Grid item sm={4} xs={10} md={4} className={classes.posts}>
-                        <ByteCard
+                        <Article
                             title="Some big title coming from backend"
                             time="1 min"
                             tags="will be array"
@@ -98,7 +98,7 @@ export default function Blog() {
                         />
                     </Grid>
                     <Grid item sm={4} xs={10} md={4} className={classes.posts}>
-                        <ByteCard
+                        <Article
                             title="Some big title coming from backend"
                             time="1 min"
                             tags="will be array"
@@ -106,7 +106,7 @@ export default function Blog() {
                         />
                     </Grid>
                     <Grid item sm={4} xs={10} md={4} className={classes.posts}>
-                        <ByteCard
+                        <Article
                             title="Some big title coming from backend"
                             time="1 min"
                             tags="will be array"
@@ -114,7 +114,7 @@ export default function Blog() {
                         />
                     </Grid>
                     <Grid item sm={4} xs={10} md={4} className={classes.posts}>
-                        <ByteCard
+                        <Article
                             title="Some big title coming from backend"
                             time="1 min"
                             tags="will be array"
@@ -122,7 +122,7 @@ export default function Blog() {
                         />
                     </Grid>
                     <Grid item sm={4} xs={10} md={4} className={classes.posts}>
-                        <ByteCard
+                        <Article
                             title="Some big title coming from backend"
                             time="1 min"
                             tags="will be array"

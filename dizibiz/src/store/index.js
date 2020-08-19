@@ -7,14 +7,20 @@ import storage from "redux-persist/lib/storage";
 // import logger from "redux-logger";
 import thunk from "redux-thunk";
 
+import { blogsReducer } from "./reducer/index";
+// import blogsReducer from "./reducer/blogsReducer";
+
 const persistConfig = {
     key: "root",
     storage,
     stateReconciler: autoMergeLevel2,
-    whitelist: ["auth", "projects"],
+    whitelist: ["blogs"],
 };
 
-const rootReducer = persistReducer(persistConfig, combineReducers({}));
+const rootReducer = persistReducer(
+    persistConfig,
+    combineReducers({ blogs: blogsReducer })
+);
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

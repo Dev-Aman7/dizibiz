@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
+import { useDispatch, useSelector } from "react-redux";
 // import GitHubIcon from "@material-ui/icons/GitHub";
 // import FacebookIcon from "@material-ui/icons/Facebook";
 // import TwitterIcon from "@material-ui/icons/Twitter";
@@ -11,6 +12,8 @@ import MainFeaturedPost from "../Components/MainFeaturedPost";
 import FeaturedPost from "../Components/FeaturedPost";
 import Footer from "../Components/Footer";
 import Article from "../Components/Article";
+
+import * as actionCreators from "../store/action";
 
 const useStyles = makeStyles((theme) => ({
     mainGrid: {
@@ -69,7 +72,16 @@ const featuredPosts = [
 ];
 
 export default function Blog() {
+    const dispatch = useDispatch();
     const classes = useStyles();
+
+    const blogs = useSelector((store) => store.blogs.blogs);
+
+    useEffect(() => {
+        dispatch(actionCreators.getAllPosts())
+            .then((res) => console.log(res))
+            .catch((err) => console.log(err));
+    }, []);
 
     return (
         <React.Fragment>
@@ -89,46 +101,24 @@ export default function Blog() {
 
             <Container maxWidth="lg" className={classes.postsContainer}>
                 <Grid container alignItems="center">
-                    <Grid item sm={4} xs={10} md={4} className={classes.posts}>
-                        <Article
-                            title="Some big title coming from backend"
-                            time="1 min"
-                            tags="will be array"
-                            content="some thing large "
-                        />
-                    </Grid>
-                    <Grid item sm={4} xs={10} md={4} className={classes.posts}>
-                        <Article
-                            title="Some big title coming from backend"
-                            time="1 min"
-                            tags="will be array"
-                            content="some thing large some thing large thing large some thing large  thing large some thing large  thing large some some thing large some thing large thing large some thing large  thing large some thing large  thing large some some thing large some thing large thing large some thing large  thing large some thing large  thing large some some thing large some thing large thing large some thing large  thing large some thing large  thing large some some thing large some thing large thing large some thing large  thing large some thing large  thing large some some thing large some thing large thing large some thing large  thing large some thing large  thing large some  thing large   some thing large some thing large some thing large some thing large some thing large "
-                        />
-                    </Grid>
-                    <Grid item sm={4} xs={10} md={4} className={classes.posts}>
-                        <Article
-                            title="Some big title coming from backend"
-                            time="1 min"
-                            tags="will be array"
-                            content="some thing large "
-                        />
-                    </Grid>
-                    <Grid item sm={4} xs={10} md={4} className={classes.posts}>
-                        <Article
-                            title="Some big title coming from backend"
-                            time="1 min"
-                            tags="will be array"
-                            content="some thing large "
-                        />
-                    </Grid>
-                    <Grid item sm={4} xs={10} md={4} className={classes.posts}>
-                        <Article
-                            title="Some big title coming from backend"
-                            time="1 min"
-                            tags="will be array"
-                            content="some thing large "
-                        />
-                    </Grid>
+                    {blogs.map((elem) => {
+                        return (
+                            <Grid
+                                item
+                                sm={4}
+                                xs={12}
+                                md={4}
+                                className={classes.posts}
+                            >
+                                <Article
+                                    title={elem.title}
+                                    time="1 min"
+                                    tags="will be array"
+                                    content={elem.content}
+                                />
+                            </Grid>
+                        );
+                    })}
                 </Grid>
             </Container>
             <Footer

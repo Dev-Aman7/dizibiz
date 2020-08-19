@@ -4,12 +4,21 @@ import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Typography from "@material-ui/core/Typography";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import { Grid } from "@material-ui/core";
+import AddIcon from "@material-ui/icons/Add";
+import RemoveIcon from "@material-ui/icons/Remove";
+// import { Grid } from "@material-ui/core";
+import Bytes from "./Bytes";
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+    },
+    accordion: {
+        width: "30rem",
+        textAlign: "center",
     },
     heading: {
         fontSize: theme.typography.pxToRem(15),
@@ -19,6 +28,10 @@ const useStyles = makeStyles((theme) => ({
         content: "cover",
         width: "100%",
         height: "15rem",
+    },
+    bytes: {
+        display: "flex",
+        justifyContent: "center",
     },
 }));
 
@@ -30,35 +43,27 @@ export default function CustomizedAccordions() {
     };
     const classes = useStyles();
     return (
-        <div>
+        <div className={classes.root}>
             <Accordion
                 square
                 expanded={expanded === "panel1"}
                 onChange={handleChange("panel1")}
+                className={classes.accordion}
             >
                 <AccordionSummary
                     aria-controls="panel1d-content"
                     id="panel1d-header"
-                    expandIcon={<ExpandMoreIcon />}
+                    expandIcon={
+                        expanded === "panel1" ? <RemoveIcon /> : <AddIcon />
+                    }
                 >
                     <Typography>Collapsible Group Item #1</Typography>
                 </AccordionSummary>
-                <AccordionDetails>
-                    <Grid container spacing={3}>
-                        <Grid item xs={10} sm={10} md={3}>
-                            <img
-                                src="https://source.unsplash.com/random"
-                                alt="byte"
-                                className={classes.image}
-                            />
-                        </Grid>
-                        <Grid item xs={10} sm={10} md={7}>
-                            <Typography> Here will be the content</Typography>
-                        </Grid>
-                    </Grid>
+                <AccordionDetails className={classes.bytes}>
+                    <Bytes />
                 </AccordionDetails>
             </Accordion>
-            <Accordion
+            {/* <Accordion
                 square
                 expanded={expanded === "panel2"}
                 onChange={handleChange("panel2")}
@@ -101,7 +106,7 @@ export default function CustomizedAccordions() {
                         amet blandit leo lobortis eget.
                     </Typography>
                 </AccordionDetails>
-            </Accordion>
+            </Accordion> */}
         </div>
     );
 }

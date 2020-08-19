@@ -16,6 +16,11 @@ const useStyles = makeStyles({
     media: {
         height: "15rem",
     },
+    title: {
+        textAlign: "center",
+        marginBottom: "2rem",
+        marginTop: "1rem",
+    },
 });
 
 const sections = [
@@ -50,6 +55,7 @@ export default function Post() {
                                 gutterBottom
                                 variant="h5"
                                 component="h2"
+                                className={classes.title}
                             >
                                 Here will be the title of the Article
                             </Typography>
